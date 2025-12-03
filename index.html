@@ -151,8 +151,25 @@
       </form>
     </div>
   </div>
+  <!-- Search bar -->
+
+  <!-- END Search bar-->
 <!-- Sort By menu -->
-<div class="d-flex justify-content-end mb-2 align-items-center">
+<div class="d-flex align-items-center mb-2">
+
+  <!-- Left spacer so search stays centered -->
+  <div class="flex-grow-1"></div>
+
+  <!-- Center: Search bar -->
+  <div class="d-flex justify-content-center flex-grow-1">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Right: Sort menu -->
+  <div class="d-flex align-items-center flex-grow-1 justify-content-end">
     <label for="sortBy" class="me-2 fw-bold">Sort by:</label>
     <select id="sortBy" class="form-select w-auto">
       <option value="name">Name</option>
@@ -161,6 +178,8 @@
       <option value="remaining">Remaining Balance</option>
     </select>
   </div>
+
+</div>
   <!-- END  Sort by menu-->
   <!-- Clients Table -->
   <div class="table-responsive client-card">
@@ -174,25 +193,99 @@
         </tr>
       </thead>
       <tbody id="clientTableBody">
-        <tr>
-          <td>Scrooge McDuck</td>
-          <td>$3,000.00</td>
-          <td>$0.01</td>
-          <td class="balance-positive">$2,999.99</td>
-        </tr>
-        <tr>
+        <!-- START Scrooge McDuck -->
+<tr data-bs-toggle="collapse" data-bs-target="#details1" class="clickable-row">
+  <td>
+    Scrooge McDuck
+    <button class="btn btn-sm btn-link p-0 ms-2">
+      ▼
+    </button>
+  </td>
+  <td>$3,000.00</td>
+  <td>$0.01</td>
+  <td class="balance-positive">$2,999.99</td>
+</tr>
 
-          <td>Capt. Jack Sparrow</td>
-          <td>$143,462,000.00</td>
-          <td>$0.00</td>
-          <td class="balance-positive overdue">$143,462,000.00 </td>
-        </tr>
-        <tr>
+<tr class="collapse" id="details1">
+  <td colspan="4">
+    <div class="p-3 border rounded bg-light">
+      <p><strong>Borrowed on:</strong> Jan 10, 2025</p>
+      <p><strong>Total to Return:</strong> $3,000.00</p>
+      <p><strong>Status:</strong> On time</p>
+      <button class="btn btn-primary btn-sm">Edit</button>
+      <button class="btn btn-danger btn-sm">Delete</button>
+    </div>
+  </td>
+</tr>
+
+      <!-- END Scrooge McDuck -->
+        
+       <!-- START Capt. Jack Sparrow -->
+       
+       <tr data-bs-toggle="collapse" data-bs-target="#details2" class="clickable-row">
+  <td>
+    Capt. Jack Sparrow
+    <button class="btn btn-sm btn-link p-0 ms-2">
+      ▼
+    </button>
+  </td>
+  <td>$143,462,000.00</td>
+  <td>$0.00</td>
+  <td class="balance-positive overdue">$143,462,000.00</td>
+</tr>
+
+<tr class="collapse" id="details2">
+  <td colspan="4">
+    <div class="p-3 border rounded bg-light">
+      <p><strong>Borrowed on:</strong> Oct 2, 2024</p>
+      <p><strong>Total to Return:</strong> $143,462,000.00</p>
+      <p><strong>Status:</strong> ❗ Overdue</p>
+      <button class="btn btn-primary btn-sm">Edit</button>
+      <button class="btn btn-danger btn-sm">Delete</button>
+
+    </div>
+  </td>
+</tr>
+         
+  <!-- END Capt. Jack Sparrow -->     
+       
+<!-- START Lisa Simpsons -->
+        <tr data-bs-toggle="collapse" data-bs-target="#details3" class="clickable-row">
+  <td>
+    Lisa Simpsons
+    <button class="btn btn-sm btn-link p-0 ms-2">
+      ▼
+    </button>
+  </td>
+  <td>$130.00</td>
+  <td>$130.00</td>
+  <td class="balance-zero">$0</td>
+</tr>
+
+<tr class="collapse" id="details3">
+  <td colspan="4">
+    <div class="p-3 border rounded bg-light">
+      <p><strong>Borrowed on:</strong> Oct 2, 2024</p>
+      <p><strong>Total to Return:</strong> $0.00</p>
+      <p><strong>Status:</strong><span style="color: green;">Paid</span></p>
+      <button class="btn btn-primary btn-sm">Edit</button>
+      <button class="btn btn-danger btn-sm">Delete</button>
+
+    </div>
+  </td>
+</tr>
+<!-- END Lisa Simpsons -->
+       
+        <!-- <tr>
             <td>Lisa Simpsons</td>
             <td>$120</td>
             <td>$120</td>
             <td class="balance-zero">$0</td>
-          </tr>
+          </tr> -->
+
+
+
+
       </tbody>
     </table>
   </div>
